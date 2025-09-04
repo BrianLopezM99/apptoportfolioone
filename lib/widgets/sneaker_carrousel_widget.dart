@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/sneaker_card_widget.dart';
 
 class SneakerCarousel extends StatelessWidget {
-  const SneakerCarousel({Key? key}) : super(key: key);
+  const SneakerCarousel({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 356, // Altura suficiente
       child: PageView.builder(

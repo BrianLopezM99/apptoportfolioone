@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 
 class SneakerCard extends StatelessWidget {
-  const SneakerCard({Key? key}) : super(key: key);
+  const SneakerCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     return Container(
       width: 300,
-      height: 300,
-      margin: const EdgeInsets.only(top: 40, left: 16, right: 16, bottom: 16),
+      height: 280,
+      margin: const EdgeInsets.only(top: 20, left: 16, right: 16, bottom: 16),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           // Card principal
           Positioned(
-            top: 40,
+            top: 20,
             child: Container(
               width: 300,
-              height: 260,
+              height: 300,
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
                   begin: Alignment.topLeft,
@@ -94,7 +95,7 @@ class SneakerCard extends StatelessWidget {
           // Imagen del tenis sobresaliendo
           Positioned(
             top: -25,
-            right: 0,
+            right: -screenHeight * 0.05,
             child: SizedBox(
               width: 240,
               height: 240,
@@ -103,7 +104,7 @@ class SneakerCard extends StatelessWidget {
           ),
           Positioned(
             bottom: 0,
-            right: 50,
+            right: screenHeight * 0.002,
             child: SizedBox(
               width: 40,
               height: 60,
