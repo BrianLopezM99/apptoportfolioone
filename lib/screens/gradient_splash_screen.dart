@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter_application_1/screens/home_screen.dart';
 
 class GradientSplashScreen extends StatefulWidget {
+  const GradientSplashScreen({super.key});
+
   @override
   _GradientSplashScreenState createState() => _GradientSplashScreenState();
 }
@@ -66,18 +68,70 @@ class _GradientSplashScreenState extends State<GradientSplashScreen>
             end: Alignment.bottomCenter,
           ),
         ),
-        child: FadeTransition(
-          opacity: _opacityAnimation,
-          child: SlideTransition(
-            position: _slideAnimation,
-            child: Center(
-              child: Image.asset(
-                'assets/logo.png',
-                width: screenHeight * 0.55,
-                height: screenHeight * 0.55,
+        child: Stack(
+          children: [
+            // Logo animado en el centro
+            Center(
+              child: FadeTransition(
+                opacity: _opacityAnimation,
+                child: SlideTransition(
+                  position: _slideAnimation,
+                  child: Image.asset(
+                    'assets/logo.png',
+                    width: screenHeight * 0.55,
+                    height: screenHeight * 0.55,
+                  ),
+                ),
               ),
             ),
-          ),
+
+            // Texto en la parte inferior
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  bottom: 40,
+                ), // separación del borde
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      textAlign: TextAlign.center,
+                      "Start Your \n Challenges With Nike",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black45,
+                            blurRadius: 4,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      "Powered by Brian © 2025",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black45,
+                            blurRadius: 4,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
